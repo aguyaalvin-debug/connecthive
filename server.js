@@ -14,7 +14,9 @@ const io = new Server(server, { cors: { origin: "*" } });
 
 const usersFile = './users.json';
 if (!fs.existsSync(usersFile)) fs.writeFileSync(usersFile, JSON.stringify([]));
-
+app.get("/", (req, res) => {
+  res.send("ConnectHive server is running 🚀");
+});
 // Register
 app.post('/register', (req, res) => {
   const { username, password } = req.body;
